@@ -1,0 +1,14 @@
+{
+  "name": "kernel-dev",
+  "owner": {
+    "name": "kernel-dev"
+  },
+  "plugins": [
+    {
+      "name": "kernel-dev",
+      "source": ".",
+      "description": "Linux kernel development skills: b4, git-bisect, git-rebase, kernel-build, virtme-ng.",
+      "version": "0.1.0"
+    }
+  ]
+}
