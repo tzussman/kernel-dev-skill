@@ -57,10 +57,8 @@ trying changes without touching your installed-plugins state.
 
 ### Option 3: Install from a git remote
 
-Once this repo is pushed somewhere, anyone can install it with:
-
 ```
-/plugin marketplace add <git-url-of-this-repo>
+/plugin marketplace add https://github.com/tzussman/kernel-dev-skill
 /plugin install kernel-dev@kernel-dev
 ```
 

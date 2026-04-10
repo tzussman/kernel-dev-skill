@@ -1,7 +1,8 @@
 {
   "name": "kernel-dev",
   "owner": {
-    "name": "kernel-dev"
+    "name": "Tal Zussman",
+    "url": "https://github.com/tzussman"
   },
   "plugins": [
     {

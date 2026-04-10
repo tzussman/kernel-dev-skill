@@ -2,6 +2,11 @@
   "name": "kernel-dev",
   "version": "0.1.0",
   "description": "Linux kernel development skills for Claude Code: b4 patch workflows, git-bisect with vng boot-testing, git-rebase recipes, kernel build, and virtme-ng VM testing.",
+  "author": {
+    "name": "Tal Zussman"
+  },
+  "homepage": "https://github.com/tzussman/kernel-dev-skill",
+  "repository": "https://github.com/tzussman/kernel-dev-skill",
   "keywords": ["linux", "kernel", "b4", "virtme-ng", "git-bisect", "git-rebase"],
   "license": "MIT"
 }
