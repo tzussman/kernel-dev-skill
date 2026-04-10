@@ -20,32 +20,72 @@ After install, skills are namespaced by the plugin name (e.g., `kernel-dev:b4`).
 
 ## Install
 
-### From a git remote (recommended)
+Throughout the install commands below, `kernel-dev@kernel-dev` is
+`<plugin-name>@<marketplace-name>`. Both happen to be named `kernel-dev`
+because this repo serves as both the plugin and its single-plugin marketplace.
 
-In any Claude Code session:
+### Option 1: Local install from a checked-out copy (persistent)
 
-```
-/plugin marketplace add <git-url-of-this-repo>
-/plugin install kernel-dev@kernel-dev
-```
-
-The first command registers the marketplace; the second installs the plugin.
-Both the marketplace and the plugin are named `kernel-dev`, hence
-`kernel-dev@kernel-dev` (`<plugin>@<marketplace>`).
-
-### Local install (development)
-
-If you have this repo checked out and want to run the in-tree version:
+If you have the repo checked out at e.g. `/mydata/kernel-dev`, register it as
+a local marketplace and install from there. From inside any Claude Code
+session:
 
 ```
 /plugin marketplace add /mydata/kernel-dev
 /plugin install kernel-dev@kernel-dev
 ```
 
-Or launch Claude Code with the plugin directory directly:
+`/plugin marketplace add` accepts a local filesystem path to any directory
+containing `.claude-plugin/marketplace.json`. The install survives across
+sessions and is the right choice if you intend to use the plugin regularly
+from a local clone (e.g. while iterating on it).
+
+To pick this up after editing files in the repo, run `/reload-plugins`.
+
+### Option 2: One-session local load (no install)
+
+To load the plugin into a single Claude Code session without any persistent
+install or marketplace registration, pass `--plugin-dir` at launch:
 
 ```bash
 claude --plugin-dir /mydata/kernel-dev
+```
+
+The directory must contain `.claude-plugin/plugin.json` (it does). The flag
+can be passed multiple times to load multiple plugins. Useful for quickly
+trying changes without touching your installed-plugins state.
+
+### Option 3: Install from a git remote
+
+Once this repo is pushed somewhere, anyone can install it with:
+
+```
+/plugin marketplace add <git-url-of-this-repo>
+/plugin install kernel-dev@kernel-dev
+```
+
+### Verifying the install
+
+Run `/plugin` to open the plugin manager. The **Installed** tab lists all
+loaded plugins grouped by scope (user, project, local) and shows the source
+each was loaded from — useful for confirming whether `kernel-dev` came from
+your local clone, a git remote, or a `--plugin-dir` flag.
+
+After installing, individual skills are namespaced by the plugin name, e.g.
+`kernel-dev:b4`, `kernel-dev:virtme-ng`.
+
+### Uninstall or disable
+
+```
+/plugin disable kernel-dev@kernel-dev      # temporarily disable
+/plugin uninstall kernel-dev@kernel-dev    # remove completely
+/reload-plugins                            # apply without restarting
+```
+
+To remove the marketplace registration itself:
+
+```
+/plugin marketplace remove kernel-dev
 ```
 
 ### Per-project enable
