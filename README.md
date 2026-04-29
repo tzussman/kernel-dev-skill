@@ -105,7 +105,7 @@ To enable this plugin only inside a specific kernel tree, commit a
 kernel-dev/
 ├── .claude-plugin/
 │   ├── plugin.json          # plugin manifest
-│   └── marketplace.json     # marketplace catalog (points at "." — this repo)
+│   └── marketplace.json     # marketplace catalog (points at "./" — this repo)
 ├── skills/
 │   ├── b4/SKILL.md
 │   ├── git-bisect/SKILL.md
@@ -115,7 +115,7 @@ kernel-dev/
 └── README.md
 ```
 
-The repo is co-located: the marketplace's `source: "."` points back at the
+The repo is co-located: the marketplace's `source: "./"` points back at the
 same directory as the plugin, so one git remote serves both roles.
 
 ## Dependencies
