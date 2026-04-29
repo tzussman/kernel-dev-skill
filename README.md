@@ -132,7 +132,8 @@ The individual `SKILL.md` files have detailed install/verification steps.
 ## Updating
 
 ```
-/plugin update kernel-dev@kernel-dev
+/plugin marketplace update kernel-dev    # refresh the catalog
+/plugin install kernel-dev@kernel-dev    # reinstall — picks up the new version
 ```
 
 Bump `version` in both `plugin.json` and `marketplace.json` when cutting a
